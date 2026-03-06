@@ -1,35 +1,94 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react"
+import Form from "./components/Form"
+import LocationDetails from "./components/LocationDetails"
+import Map from "./components/Map"
+import mockData1 from "./utils/mockData1.js"
+import mockData2 from "./utils/mockData2.js"
 
-const API_KEY = import.meta.env.VITE_API_KEY
+const key = import.meta.env.VITE_API_KEY
+
+const getUserIp = async () => {
+  try {
+    const response = await fetch("https://api.ipify.org?format=json");
+    const data = await response.json();
+    const ipAddress = data.ip;
+
+    console.log("User's public IP address is: " + ipAddress);
+
+    return ipAddress;
+  } catch (error) {
+    console.error("Error fetching IP address:", error);
+  }
+}
+
+const fetchGeoLocation = async (addressString,domainBoolean=false) => {
+  try {
+
+    const useMockData = true;
+
+    const apiKey = key; // Set this value to your API key
+    const address = addressString;
+    const isDomain = domainBoolean;
+    let url;
+    let data;
+
+    if(useMockData){
+      data = (address=="24.0.24.106" ? mockData1 : mockData2);
+    }
+    else{
+      url = `https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}&${isDomain?"domain":"ipAddress"}=${address}`;
+      console.log("URL: ",url);
+      const response = await fetch(url);
+      console.log("Response: ",response);
+      if (!response.ok) {
+        throw new Error("API request failed: " + response.status);
+      }
+      data = await response.json();
+    };
+    return data;
+
+  } catch (e) {
+    console.log(e);
+  }
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [ipAddress,setIpAddress] = useState(null)
+  const [geoData,setGeoData] = useState(null)
+
+  useEffect(()=>{
+
+    const loadData = async () => {
+      try {
+        if(!ipAddress) {
+          const ip = await getUserIp();
+          const data = await fetchGeoLocation(ip);
+          setGeoData(data);
+          console.log("responseData", data);
+        }
+        else  {
+          const data = await fetchGeoLocation(ipAddress);
+          setGeoData(data);
+          console.log("responseData", data);
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    loadData();
+    
+  },[ipAddress])
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <main>
+          <section id="form">
+              <h1>IP Address Tracker</h1>
+              <Form onSubmit={setIpAddress} />
+              <LocationDetails data={geoData} />
+          </section>
+          <Map data={geoData} />
+      </main>
     </>
   )
 }
