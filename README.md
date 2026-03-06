@@ -51,7 +51,7 @@ npm install
 - In the file, add the following line of code with your API key:
 
 ```javascript
-VITE_API_KEY = "YOUR_API_KEY_HERE"
+VITE_API_KEY = "YOUR_API_KEY_HERE";
 ```
 
 #### Run in development mode
@@ -69,3 +69,9 @@ npm run build
 ```
 
 This outputs a production bundle to dist/.
+
+## Reflections
+
+In this project I had to take a previous project done in HTML, SCSS, and vanilla JavaScript, and refactor the code for a single page React app. The first thing I did after setting up my development environment was take the HTML from the main section of my previous project, and place it inside my App component. Then I broke don the HTML into separate components that I could use for my project, placing the components in the same position that the HTML had previously been. This enabled me to reuse the SCSS that I’d created on my previous project without having to redo the design.
+
+Once I had the layout, I started working on the functionality. I setup core functionality like controlled form inputs, onChange events, onSubmit events, and since my application did not require me to deeply nest components I used props and callback functions to pass data updates between components. When it came to handling form validations and fetching data, I was able to reuse and refactor some of the code that I’d previously created. I added features one at a time, testing after each edit was made to ensure that the new feature was reacting as expected. Also, during development I used mock data, to avoid reaching the limit on my API key.
