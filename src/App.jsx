@@ -5,7 +5,7 @@ import Map from "./components/Map"
 import mockData1 from "./utils/mockData1.js"
 import mockData2 from "./utils/mockData2.js"
 
-const key = import.meta.env.VITE_API_KEY
+const key = import.meta.env.VITE_API_KEY // Set this value to your API key in a .env file in the root directory of your projecct
 
 const getUserIp = async () => {
   try {
@@ -26,7 +26,7 @@ const fetchGeoLocation = async (addressString,domainBoolean=false) => {
 
     const useMockData = true;
 
-    const apiKey = key; // Set this value to your API key
+    const apiKey = key;
     const address = addressString;
     const isDomain = domainBoolean;
     let url;
