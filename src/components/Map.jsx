@@ -8,7 +8,7 @@ const RecenterMap = ({ position }) => {
   const map = useMap();
   useEffect(() => {
     if (position) {
-      map.setView(position, 13); // Or map.flyTo(position, 13) for animation
+      map.flyTo(position, 13); // map.setView(position, 13) or map.flyTo(position, 13) for animation
     }
   }, [position, map]);
   return null;
