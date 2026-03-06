@@ -10,7 +10,6 @@ export function useFetch(url,options={}) {
         if (!url) return;
         
         const controller = new AbortController();
-        setData(null);
         setLoading(true);
         setError(null);
 
