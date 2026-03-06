@@ -5,3 +5,9 @@ This is a React application that tracks and displays the location of a given IP 
 ## Depolyments
 
 This repository is deployed on Netlify here: https://react-ip-address-geolocator.netlify.app/
+
+## Layout Previews
+
+![Desktop view](./src/images/desktop-design.jpg)
+
+![Mobile view](./src/images/mobile-design.jpg)
