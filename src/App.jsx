@@ -24,7 +24,7 @@ const getUserIp = async () => {
 const fetchGeoLocation = async (addressString,domainBoolean=false) => {
   try {
 
-    const useMockData = true;
+    const useMockData = !true;
 
     const apiKey = key;
     const address = addressString;
