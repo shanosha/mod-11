@@ -43,6 +43,13 @@ main > section:last-child {
     margin-bottom: 0;
   }
 }
+#error {
+  margin-bottom: 0;
+  background: #EBDBE8;
+  padding: 7px;
+  border-radius: 4px;
+  color: #bd0000;
+}
 #searchForm {
   display: flex;
   width: 100%;

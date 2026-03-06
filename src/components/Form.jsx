@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { getHostType } from "../utils/updateDom"
 
-function Form ({onSubmit}) {
+function Form ({onSubmit,error=null}) {
     const [searchString,setSearchString] = useState("");
 
     function checkValidity(inputElement) {
@@ -30,12 +30,15 @@ function Form ({onSubmit}) {
     }
 
     return (
-        <form id="searchForm" onSubmit={handleSubmit}>
-            <input type="text" id="search" aria-label="Enter an IP address or domain" placeholder="Search for any IP address or domain" value={searchString} onChange={handleChange} />
-            <button type="submit" aria-label="Search">
-                <span className="arrow"></span>
-            </button>
-        </form>
+        <>
+            {error && <p id="error">No IP address or domain matches that value.</p>}
+            <form id="searchForm" onSubmit={handleSubmit}>
+                <input type="text" id="search" aria-label="Enter an IP address or domain" placeholder="Search for any IP address or domain" value={searchString} onChange={handleChange} />
+                <button type="submit" aria-label="Search">
+                    <span className="arrow"></span>
+                </button>
+            </form>
+        </>
     )
 }
 

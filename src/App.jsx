@@ -11,7 +11,7 @@ function App() {
   const [ipAddress,setIpAddress] = useState(null)
   const [url,setUrl] = useState(null)
   const {data: userIp} = useFetch("https://api.ipify.org?format=json")
-  const {data: geoData} = useFetch(url)
+  const {data: geoData, error: geoDataError} = useFetch(url)
 
   useEffect(()=>{
 
@@ -29,7 +29,7 @@ function App() {
       <main>
           <section id="form">
               <h1>IP Address Tracker</h1>
-              <Form onSubmit={setIpAddress} />
+              <Form onSubmit={setIpAddress} error={geoDataError} />
               <LocationDetails data={geoData} />
           </section>
           <Map data={geoData} />
