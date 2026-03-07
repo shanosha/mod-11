@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react"
 
+// Custom hook to fetch data, and return data, error, and loading variables
 export function useFetch(url,options={}) {
     const [data,setData] = useState(null);
     const [loading,setLoading] = useState(true);

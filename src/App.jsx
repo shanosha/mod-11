@@ -5,7 +5,8 @@ import Map from "./components/Map"
 import { useFetch } from "./hooks/useFetch.js"
 import { getHostType } from "./utils/utils"
 
-const key = import.meta.env.VITE_API_KEY // Set this value to your API key in a .env file in the root directory of your projecct
+// Set this value to your API key in a .env file in the root directory of the projecct
+const key = import.meta.env.VITE_API_KEY
 
 function App() {
   const [ipAddress,setIpAddress] = useState(null)

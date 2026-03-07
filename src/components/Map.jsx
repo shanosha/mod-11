@@ -4,6 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import customMarkerImg from "../images/icon-location.svg"
 import { useEffect } from 'react';
 
+// Leaflet component used to recenter the map
 const RecenterMap = ({ position }) => {
   const map = useMap();
   useEffect(() => {
@@ -14,15 +15,11 @@ const RecenterMap = ({ position }) => {
   return null;
 }
 
+// Component used to display the leaflet map, a marker icon, and a popup when the marker is clicked
 const Map = ({data}) => {
-  // let [lat,lng] = [51.505, -0.09]; // Default center // Default center
-  let position = null
+  let position = null;
   if(data){
-    console.log("MAP DATA", data)
-    // console.log("DATA LAT", data.location.lat)
-    // console.log("DATA LNG", data.location.lng)
     position = [data.location.lat, data.location.lng];
-    console.log("MAP POSITION", position)
   }
   
   const myIcon = L.icon({

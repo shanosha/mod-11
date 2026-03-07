@@ -1,3 +1,4 @@
+// Component that displays the details for a given IP address
 function LocationDetails ({data}) {
     return (
         <>
