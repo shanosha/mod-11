@@ -6,12 +6,6 @@ This is a React application that tracks and displays the location of a given IP 
 
 This repository is deployed on Netlify here: https://react-ip-address-geolocator.netlify.app/
 
-## Layout Previews
-
-![Desktop view](./src/assets/desktop-design.jpg)
-
-![Mobile view](./src/assets/mobile-design.jpg)
-
 ## Getting Started
 
 ### Requirements
@@ -77,3 +71,9 @@ In this project I had to take a previous project done in HTML, SCSS, and vanilla
 Once I had the layout, I started working on the functionality. I setup core functionality like controlled form inputs, onChange events, onSubmit events, and since my application did not require me to deeply nest components I used props and callback functions to pass data updates between components. When it came to handling form validations and fetching data, I was able to reuse and refactor some of the code that I’d previously created. I added features one at a time, testing after each edit was made to ensure that the new feature was reacting as expected. Also, during development I used mock data, to avoid reaching the limit on my API key.
 
 After I got the code working, I was able to refactor the code further, replacing functions I'd previously written with custom hooks and useEffect. This allowed for the use of less code, and cleaner code, but it did have some tradeoffs. For example, with the functions I'd previously been using to fetch geolocation data, I could easily switch from using the live API to using mock data by changing one variable to true or false. Also, the error messages and console logs were more specific to the data being fetched. But, switching to using a custom hook allowed me to add new features as needed, like adding an error message to the form, without needing to add much additional coding.
+
+## Layout Previews
+
+![Desktop view](./src/assets/desktop-design.jpg)
+
+![Mobile view](./src/assets/mobile-design.jpg)
