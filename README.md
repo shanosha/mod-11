@@ -16,11 +16,11 @@ This repository is deployed on Netlify here: https://react-ip-address-geolocator
 
 ### Requirements
 
-- Node.js, NPM, and Vite
+- Node.js, NPM, and Vite.
 
-- An IP Geolocation API key from IPify https://geo.ipify.org/ storeded in an environment variable name VITE_API_KEY
+- An IP Geolocation API key from IPify https://geo.ipify.org/
 
-- A web browser for testing
+- A web browser for testing.
 
 ### Install
 
@@ -68,10 +68,12 @@ Open the app in your browser at the URL address displayed in your terminal. You 
 npm run build
 ```
 
-This outputs a production bundle to dist/.
+This outputs a production bundle to the "dist" directory.
 
 ## Reflections
 
 In this project I had to take a previous project done in HTML, SCSS, and vanilla JavaScript, and refactor the code for a single page React app. The first thing I did after setting up my development environment was take the HTML from the main section of my previous project, and place it inside my App component. Then I broke don the HTML into separate components that I could use for my project, placing the components in the same position that the HTML had previously been. This enabled me to reuse the SCSS that I’d created on my previous project without having to redo the design.
 
 Once I had the layout, I started working on the functionality. I setup core functionality like controlled form inputs, onChange events, onSubmit events, and since my application did not require me to deeply nest components I used props and callback functions to pass data updates between components. When it came to handling form validations and fetching data, I was able to reuse and refactor some of the code that I’d previously created. I added features one at a time, testing after each edit was made to ensure that the new feature was reacting as expected. Also, during development I used mock data, to avoid reaching the limit on my API key.
+
+After I got the code working, I was able to refactor the code further, replacing functions I'd previously written with custom hooks and useEffect. This allowed for the use of less code, and cleaner code, but it did have some tradeoffs. For example, with the functions I'd previously been using to fetch geolocation data, I could easily switch from using the live API to using mock data by changing one variable to true or false. Also, the error messages and console logs were more specific to the data being fetched. But, switching to using a custom hook allowed me to add new features as needed, like adding an error message to the form, without needing to add much additional coding.
