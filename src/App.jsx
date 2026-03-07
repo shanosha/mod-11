@@ -3,7 +3,7 @@ import Form from "./components/Form"
 import LocationDetails from "./components/LocationDetails"
 import Map from "./components/Map"
 import { useFetch } from "./hooks/useFetch.js"
-import { getHostType } from "./utils/updateDom"
+import { getHostType } from "./utils/utils"
 
 const key = import.meta.env.VITE_API_KEY // Set this value to your API key in a .env file in the root directory of your projecct
 

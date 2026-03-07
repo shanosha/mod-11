@@ -1,23 +1,8 @@
 import { useState } from "react"
-import { getHostType } from "../utils/updateDom"
+import { checkValidity } from "../utils/utils"
 
 function Form ({onSubmit,error=null}) {
     const [searchString,setSearchString] = useState("");
-
-    function checkValidity(inputElement) {
-        if (inputElement.value === "") {
-            inputElement.setCustomValidity("Please enter an IP address or domain");
-            return false;
-        }
-        else if (inputElement.value !== "" && getHostType(inputElement.value) === "invalid" ) {
-            inputElement.setCustomValidity("Please enter a valid IP address or domain");
-            return false;
-        }
-        else {
-            inputElement.setCustomValidity("");
-            return true;
-        }
-    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
