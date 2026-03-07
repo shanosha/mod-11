@@ -1,7 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet'; 
 import 'leaflet/dist/leaflet.css';
-import customMarkerImg from "../images/icon-location.svg"
+import customMarkerImg from "../assets/icon-location.svg"
 import { useEffect } from 'react';
 
 // Leaflet component used to recenter the map

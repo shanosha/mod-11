@@ -8,9 +8,9 @@ This repository is deployed on Netlify here: https://react-ip-address-geolocator
 
 ## Layout Previews
 
-![Desktop view](./src/images/desktop-design.jpg)
+![Desktop view](./src/assets/desktop-design.jpg)
 
-![Mobile view](./src/images/mobile-design.jpg)
+![Mobile view](./src/assets/mobile-design.jpg)
 
 ## Getting Started
 

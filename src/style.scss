@@ -30,7 +30,7 @@ main > section:last-child {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: url("./images/pattern-bg-desktop.png") no-repeat;
+  background: url("./assets/pattern-bg-desktop.png") no-repeat;
   background-size: cover;
   padding: 20px;
   @media (min-width: 800px) {
@@ -71,7 +71,7 @@ main > section:last-child {
 
   button {
     width: 54px;
-    background: #000 url("./images/icon-arrow.svg") center center no-repeat;
+    background: #000 url("./assets/icon-arrow.svg") center center no-repeat;
     border: none;
     cursor: pointer;
 
